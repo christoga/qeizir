@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Qeizir</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form action="/predict" method="post">
+			<label for="name">Nama</label>
+		    <input type="text" class="form-control" name="name" id="name" placeholder="Masukan Namamu">
+			<br>
+		    <center><input type="submit" class="btn btn-outline-primary btn-lg" value="Predict"></center>
+		</form>
+	</div>
+</body>
+</html>
+
+{%if data%}
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Qeizir</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Nama: {{nama}}</h1>
+			<h1>Kemungkinan: {{data[0]}}</h1>
+
+			<div class="row" align="center" id="chart">
+				<div class="col-md-6">
+					<span id="male">{{data[1]}}%</span>
+				</div>
+				<div class="col-md-6">
+					<span id="female">{{data[2]}}%</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	</html>
+{%endif%}
